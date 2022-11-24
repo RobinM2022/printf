@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 #include <stdarg.h>
 /**
   * print_ident - function to print identifiers
@@ -12,14 +13,14 @@ int print_ident(char letter, ...)
 
 	ident funct[] = {
 		{"c", print_char},
-		{"s", print_string},
+		{"s", print_str},
 		{NULL, NULL}
 	};
 
 	for (i = 0; funct[i].type != NULL; i++)
 	{
-		if (functs[i].type[0] == letter)
-			return (functs[i].f(args))
+		if (funct[i].type[0] == letter)
+			return (funct[i].f(args));
 	}
 	return (0);
 }
@@ -33,7 +34,7 @@ int _printf(const char *format, ...)
 	unsigned int i;
 	int identifier = 0, charPrinted = 0;
 	va_list args;
-	
+
 	if (format == NULL)
 		return (-1);
 	for (i = 0; format[i] != '\0'; i++)
@@ -49,11 +50,11 @@ int _printf(const char *format, ...)
 			 _putchar('%');
 			 charPrinted++;
 			 i++;
-			 continue;
+		 continue;
 		}
 		if (format[i + 1] == '\0')
 			return (-1);
-		identifier = print_ident(format[i + 1], arg);
+		identifier = print_ident(format[i + 1], args);
 		if (identifier == -1 || identifier != 0)
 			i++;
 		if (identifier > 0)
