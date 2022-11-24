@@ -20,7 +20,7 @@ typedef struct ident
 {
 	char *type;
 	int (*f)(va_list);
-};
+} ident;
 
 
 
