@@ -1,9 +1,9 @@
 #include "main.h"
 #include <stdarg.h>
 /**
-  * 
-  *
-  * Return:
+  * print_ident - function to print identifiers
+  * @letter: character after %
+  * Return: number of characters to be printed.
   */
 int print_ident(char letter, ...)
 {
