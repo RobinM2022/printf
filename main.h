@@ -12,9 +12,9 @@ int print_percent(void);
 
 
 /**
-  * struct ident - struct
-  *
-  *
+  * struct ident - structure definition of an ident
+  * @type: identifiers
+  * @f: function to print our found type.
   */
 typedef struct ident
 {
